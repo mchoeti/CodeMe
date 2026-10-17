@@ -1,9 +1,10 @@
 const countdown = () => {
-    const countDate = new Date("December 24, 2021 00:00:00").getTime();
-    console.log(countDate);
     const now = new Date().getTime();
+    // Nächster Heiliger Abend: ist er dieses Jahr schon vorbei, dann nächstes Jahr
+    const year = new Date().getFullYear();
+    let countDate = new Date(year, 11, 24).getTime();
+    if (countDate < now) countDate = new Date(year + 1, 11, 24).getTime();
     const gap = countDate - now;
-    console.log(gap);
 
     // How much is time, mit der Miliseconds beginnen
     const second = 1000;
@@ -32,4 +33,4 @@ const countdown = () => {
 
 // Updating jede Sekunde
 setInterval(countdown, 1000);
-//countdown();
+countdown();

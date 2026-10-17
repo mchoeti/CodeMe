@@ -1,43 +1,76 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 body {
-    font-family: "Lato", sans-serif;
-}
-
-h2 {
-    font-size: 5rem;
-    font-weight: bold;
+    background-color: #0b1220;
+    background-image:
+        radial-gradient(circle at 50% 0, rgb(52 211 153 / 0.25), transparent 55%),
+        radial-gradient(circle at 50% 100%, rgb(255 93 115 / 0.25), transparent 55%);
 }
 
 .coming-soon {
     min-height: 100vh;
+    padding: 2.4rem 1.6rem;
     display: flex;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
-}
-
-.countdown {
-    display: flex;
-    justify-content: space-around;
+    gap: 2rem;
     text-align: center;
 }
 
-.day,
-.hour,
-.minute,
-.second {
-    font-size: 3rem;
+h2 {
+    margin: 0 0 1.6rem;
+    font-size: clamp(2.8rem, 8vw, 5rem);
+    background: linear-gradient(135deg, #ff5d73, #34d399);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.countdown {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(0.6rem, 2vw, 1.4rem);
+    width: min(56rem, 100%);
+}
+
+.container-day {
+    padding: 1.4rem 0.4rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+}
+
+.container-day h3 {
+    margin: 0;
+    font-size: clamp(1rem, 2.8vw, 1.3rem);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.container-day .day,
+.container-day .hour,
+.container-day .minute,
+.container-day .second {
+    font-size: clamp(2.4rem, 8vw, 4rem);
+    font-weight: 800;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--text);
+    font-variant-numeric: tabular-nums;
 }
 
 .waiting {
-    height: 50vh;
+    max-width: 100%;
+    max-height: 40vh;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    object-fit: contain;
 }
 
 .christmas {
-    font-size: 2rem;
+    margin: 0;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
     font-style: italic;
+    color: var(--muted);
 }

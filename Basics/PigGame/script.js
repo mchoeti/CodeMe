@@ -99,7 +99,7 @@ btnHold.addEventListener("click", function () {
         // checken ob score >= 100 ist weil hier gibts an WIn 
         console.log("Hold me now !!!");
 
-        if (scores[activePlayer] >= 10) {
+        if (scores[activePlayer] >= 100) {
             console.log("you WOON");
             playing = false;
             // beim Query selector wenn du eine Klassa aufrufst bitte auch den punkt machen :-)

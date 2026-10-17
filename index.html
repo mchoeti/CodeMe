@@ -4,39 +4,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="light dark">
     <title>CodeMe - JavaScript Practice</title>
+    <link rel="stylesheet" href="theme.css">
     <style>
-        :root { --bg: #f4f5f8; --card: #fff; --text: #1d2433; --muted: #667085; --accent: #3b6cf6; --border: #dde1e8; }
-        @media (prefers-color-scheme: dark) {
-            :root { --bg: #12151c; --card: #1c212b; --text: #eef1f6; --muted: #9aa3b2; --border: #2f3644; }
+        body {
+            padding: clamp(2rem, 6vw, 6rem) 1.6rem;
+            background-image: radial-gradient(circle at 80% -10%, rgb(124 92 255 / 0.3), transparent 50%);
+            background-repeat: no-repeat;
         }
-        * { box-sizing: border-box; }
-        body { margin: 0; padding: 24px 16px; background: var(--bg); color: var(--text); font-family: system-ui, sans-serif; }
-        main { max-width: 760px; margin: 0 auto; }
-        h1 { margin: 0 0 4px; }
-        p { color: var(--muted); }
-        ul { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; padding: 0; list-style: none; }
-        a { display: block; height: 100%; padding: 16px; background: var(--card); border: 1px solid var(--border); border-radius: 12px; color: var(--text); text-decoration: none; }
-        a:hover, a:focus-visible { border-color: var(--accent); }
-        strong { display: block; color: var(--accent); }
-        small { color: var(--muted); }
+
+        main {
+            max-width: 96rem;
+            margin: 0 auto;
+        }
+
+        h1 {
+            margin: 0 0 0.8rem;
+            font-size: clamp(3.2rem, 8vw, 5.6rem);
+            line-height: 1.05;
+            background: var(--accent-grad);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .lead {
+            margin: 0 0 4rem;
+            max-width: 56rem;
+            color: var(--muted);
+            font-size: 1.8rem;
+        }
+
+        h2 {
+            margin: 4rem 0 1.6rem;
+            font-size: 1.4rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(26rem, 1fr));
+            gap: 1.6rem;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .cards a {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            height: 100%;
+            padding: 2.4rem;
+            color: var(--text);
+            text-decoration: none;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .cards a:hover,
+        .cards a:focus-visible {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            box-shadow: var(--shadow);
+        }
+
+        .emoji {
+            font-size: 3.2rem;
+            line-height: 1;
+            margin-bottom: 0.8rem;
+        }
+
+        .cards strong {
+            font-size: 1.8rem;
+        }
+
+        .cards small {
+            color: var(--muted);
+            font-size: 1.4rem;
+        }
+
+        .tag {
+            align-self: flex-start;
+            margin-top: auto;
+            padding: 0.2rem 1rem;
+            font-size: 1.2rem;
+            color: var(--accent-2);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+        }
+
+        footer {
+            margin-top: 5rem;
+            color: var(--muted);
+            font-size: 1.4rem;
+        }
     </style>
 </head>
 
 <body>
     <main>
         <h1>CodeMe</h1>
-        <p>My JavaScript learning material: small games and exercises.</p>
-        <ul>
-            <li><a href="Basics/PigGame/index.html"><strong>Pig Game</strong><small>Dice game for two players</small></a></li>
-            <li><a href="Basics/GuessNumber/index.html"><strong>Guess My Number</strong><small>Guess a number from 1 to 20</small></a></li>
-            <li><a href="Basics/ModalWindow/index.html"><strong>Modal Window</strong><small>DOM and class toggling</small></a></li>
-            <li><a href="Basics/Countdown/index.html"><strong>Countdown</strong><small>Timers and dates</small></a></li>
-            <li><a href="Challenges/index.html"><strong>Challenges</strong><small>Football data, Caesar, roman numbers</small></a></li>
-            <li><a href="DataStructures/index.html"><strong>Data Structures</strong><small>Sets, maps, strings, loops</small></a></li>
+        <p class="lead">My JavaScript learning material: small games and exercises, all in plain HTML, CSS and JS.</p>
+
+        <h2>Games &amp; apps</h2>
+        <ul class="cards">
+            <li><a href="Basics/PigGame/index.html"><span class="emoji">🎲</span><strong>Pig Game</strong><small>Two players, one dice, push your luck.</small><span class="tag">DOM</span></a></li>
+            <li><a href="Basics/GuessNumber/index.html"><span class="emoji">🔢</span><strong>Guess My Number</strong><small>Find the secret number from 1 to 20.</small><span class="tag">Events</span></a></li>
+            <li><a href="Basics/ModalWindow/index.html"><span class="emoji">🪟</span><strong>Modal Window</strong><small>Open and close dialogs with classes.</small><span class="tag">Classes</span></a></li>
+            <li><a href="Basics/Countdown/index.html"><span class="emoji">🎄</span><strong>Countdown</strong><small>Live countdown to Christmas.</small><span class="tag">Dates</span></a></li>
+            <li><a href="OOP/simpleForEach/index.html"><span class="emoji">🟦</span><strong>forEach Clicks</strong><small>Click handlers on a list of elements.</small><span class="tag">forEach</span></a></li>
         </ul>
-        <p>Pure console exercises (open the folder's <code>index.html</code> or run with Node): <code>BasicAlgo</code>, <code>IntermediateJS</code>, <code>OOP</code>.</p>
+
+        <h2>Console exercises</h2>
+        <ul class="cards">
+            <li><a href="Challenges/index.html"><span class="emoji">🏆</span><strong>Challenges</strong><small>Cash register, Caesar cipher, roman numbers.</small><span class="tag">Console</span></a></li>
+            <li><a href="DataStructures/index.html"><span class="emoji">🧱</span><strong>Data Structures</strong><small>Strings, sets, maps, destructuring.</small><span class="tag">Console</span></a></li>
+            <li><a href="BehindScenes/index.html"><span class="emoji">⚙️</span><strong>Behind the Scenes</strong><small>Objects and the this keyword.</small><span class="tag">Console</span></a></li>
+        </ul>
+
+        <footer>More folders without a page: <code>BasicAlgo</code>, <code>IntermediateJS</code>, <code>OOP</code>. Run them with <code>node file.js</code>.</footer>
     </main>
 </body>
 

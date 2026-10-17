@@ -1,21 +1,47 @@
+body {
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+    justify-items: center;
+    gap: 2.4rem;
+    padding: 2.4rem 1.6rem;
+}
 
 .grid {
-	width: 606px;
-	height: 206px;
-	display: flex;
-	flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(8rem, 16rem));
+    gap: 1.6rem;
+    height: auto;
+    background: none;
 }
-
 
 .square {
-	height: 200px;
-	width: 200px;
-	border: solid black 1px;
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    font-size: 4rem;
+    font-weight: 800;
+    color: #fff;
+    background: var(--accent-grad);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: transform 0.15s;
+    height: auto;
+    width: auto;
 }
 
+.square:hover {
+    transform: translateY(-4px);
+}
 
-div {
-    height: 100px;
-    width: 100px;
-    background-color: lightblue;
-};
+#myTest {
+    padding: 1.2rem 2.8rem;
+    font: inherit;
+    font-weight: 600;
+    color: var(--text);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    cursor: pointer;
+}
